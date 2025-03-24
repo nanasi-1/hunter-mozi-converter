@@ -16,9 +16,6 @@ function App () {
           <Header2>文字</Header2>
           <MoziSelector mode="to-hiragana" onInput={onSelect} />
         </div>
-        {/* <div className="flex gap-x-3">
-          {mozies.map(mozi => <HunterMozi textSize={30} children={mozi} />)}
-        </div> */}
         <div>
           <div className="flex gap-x-3 w-full flex-wrap justify-center">
             {mozies.map((mozi, i) => <div key={i} className="text-2xl h-10" children={mozi} />)}

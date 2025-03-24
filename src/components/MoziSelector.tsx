@@ -1,5 +1,5 @@
 import { HIRAGANA_LIST } from "@/features/data";
-import { HunterMozi } from "./HunterMozi";
+import { Mozi } from "./HunterMozi";
 
 export type SelectMode = 'to-hiragana' | 'to-hunter-mozi'
 
@@ -12,13 +12,10 @@ export function MoziSelector({ onInput, mode }: {
       {HIRAGANA_LIST.map(hiragana => (
         <SelectButton key={hiragana} onClick={hiragana ? e => onInput?.(hiragana, e) : void 0}>
           {hiragana ? <>
-            <SelectButtonRuby>{
-              mode === "to-hunter-mozi" ? <HunterMozi children={hiragana} /> : hiragana}
+            <SelectButtonRuby>
+              <Mozi hunter={mode === "to-hunter-mozi"}>{hiragana}</Mozi>
             </SelectButtonRuby>
-            {mode === "to-hunter-mozi" ?
-              <div className="text-lg">{hiragana}</div> :
-              <HunterMozi children={hiragana} />
-            }
+            <Mozi hunter={mode === "to-hiragana"} className="text-2xl">{hiragana}</Mozi>
           </> : null}
         </SelectButton>
       ))}
