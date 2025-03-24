@@ -7,7 +7,7 @@ function App () {
       <h1>ハンター文字変換機</h1>
       <HunterMozi>あ</HunterMozi>
       <div className="px-10">
-        <MoziSelector />
+        <MoziSelector mode="to-hunter-mozi" onInput={h => console.log(h)} />
       </div>
     </main>
   );
