@@ -9,17 +9,19 @@ export function MoziSelector({ onInput, mode }: {
 }) {
   return (
     <div className="border-t-2 border-r-2 grid grid-cols-[repeat(5,100px)] w-[500px]">
-      {HIRAGANA_LIST.map(hiragana => {return (
-        <SelectButton key={hiragana} onClick={e => onInput?.(hiragana, e)}>
-          <SelectButtonRuby>{
-            mode === "to-hunter-mozi" ? <HunterMozi children={hiragana} textSize={12} /> : hiragana}
-          </SelectButtonRuby>
-          {mode === "to-hunter-mozi" ? 
-            <div className="text-lg">{hiragana}</div> :
-            <HunterMozi children={hiragana} /> 
-          }
+      {HIRAGANA_LIST.map(hiragana => (
+        <SelectButton key={hiragana} onClick={hiragana ? e => onInput?.(hiragana, e) : void 0}>
+          {hiragana ? <>
+            <SelectButtonRuby>{
+              mode === "to-hunter-mozi" ? <HunterMozi children={hiragana} /> : hiragana}
+            </SelectButtonRuby>
+            {mode === "to-hunter-mozi" ?
+              <div className="text-lg">{hiragana}</div> :
+              <HunterMozi children={hiragana} />
+            }
+          </> : null}
         </SelectButton>
-      )})}
+      ))}
     </div>
   )
 }
@@ -35,7 +37,7 @@ function SelectButton({ children, onClick }: {
   onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }) {
   return (
-    <button 
+    <button
       onClick={onClick}
       className="relative flex justify-center items-center border-b-2 border-l-2 min-h-[70px] hover:bg-slate-100"
     >
