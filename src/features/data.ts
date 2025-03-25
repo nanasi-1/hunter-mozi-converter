@@ -14,5 +14,5 @@ export const HIRAGANA_LIST: readonly (string | null)[] = [
   "だ", "ぢ", "づ", "で", "ど", 
   "ば", "び", "ぶ", "べ", "ぼ", 
   "ぁ", "ぃ", "ぅ", "ぇ", "ぉ",
-  "っ", null, null, null, null,
+  "ゃ", "ゅ", "ょ", "っ", null,
 ]
