@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Button } from "../ui/Button"
+import { ModalContainer, useModal } from "@/hooks/modal"
 
 function TextArea({ onSubmit, defaultValue }: {
   onSubmit: (value: string) => void
@@ -25,13 +26,30 @@ function TextArea({ onSubmit, defaultValue }: {
   )
 }
 
-export function InputMoziModal({ mozies, setMozies }: {
+export function InputMoziModal({ mozies, setMozies, close }: {
+  mozies: string[]
+  setMozies: (mozies: string[]) => void
+  close: () => void
+}) {
+  const onSubmit = (t: string) => {
+    close()
+    setMozies(t.split(""))
+  }
+
+  return (
+    <ModalContainer>
+      <TextArea onSubmit={onSubmit} defaultValue={mozies.join("")} />
+    </ModalContainer>
+  )
+}
+
+export function MoziModalOpen(props: {
   mozies: string[]
   setMozies: (mozies: string[]) => void
 }) {
-  return (
-    <div>
-      <TextArea onSubmit={t => setMozies(t.split(""))} defaultValue={mozies.join("")} />
-    </div>
-  )
+  const { open, dialog, close } = useModal()
+  return (<>
+    {dialog}
+    <Button onClick={() => open(<InputMoziModal close={close} {...props} />)}>open dialog</Button>
+  </>)
 }
