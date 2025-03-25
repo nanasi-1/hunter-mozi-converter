@@ -2,9 +2,15 @@ import { tv } from "tailwind-variants"
 
 const base = tv({
   base: [
-    "border-2", "w-[120px]", "h-[40px]",
-    "hover:bg-slate-100", "transition-colors"
-  ]
+    "rounded", "bg-slate-400", "w-[120px]", "h-[40px]",
+    "transition-colors", "text-slate-100"
+  ],
+  variants: {
+    disabled: {
+      true: ["cursor-not-allowed", "bg-slate-300"],
+      false: ["cursor-pointer", "hover:bg-slate-500"]
+    }
+  }
 })
 
 export function ClearInput({ onClick, disabled }: {
@@ -12,7 +18,7 @@ export function ClearInput({ onClick, disabled }: {
   disabled: boolean
 }) {
   return (
-    <button className={base()} onClick={onClick} disabled={disabled}>全てクリア</button>
+    <button className={base({ disabled })} onClick={onClick} disabled={disabled}>全てクリア</button>
   )
 }
 
@@ -25,6 +31,6 @@ export function Backspace({ onClick, disabled }: {
     base: ["mr-2", "w-[70px]"]
   })
   return (
-    <button className={button()} onClick={onClick} disabled={disabled}>←</button>
+    <button className={button({ disabled })} onClick={onClick} disabled={disabled}>←</button>
   )
 }
