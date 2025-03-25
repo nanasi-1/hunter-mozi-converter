@@ -12,7 +12,7 @@ export function MoziSelector({ onInput, mode }: {
       {HIRAGANA_LIST.map((hiragana, i) => (
         <SelectButton key={i} onClick={hiragana ? e => onInput?.(hiragana, e) : void 0}>
           {hiragana ? <>
-            <Ruby ruby={<SelectButtonRuby children={hiragana} />}>
+            <Ruby ruby={<SelectButtonRuby mode={mode} children={hiragana} />}>
               <Mozi hunter={mode === "to-hiragana"} className="text-2xl">{hiragana}</Mozi>
             </Ruby>
           </> : null}
@@ -22,10 +22,11 @@ export function MoziSelector({ onInput, mode }: {
   )
 }
 
-function SelectButtonRuby({ children }: {
-  children: React.ReactNode
+function SelectButtonRuby({ children, mode }: {
+  children: string
+  mode: SelectMode
 }) {
-  return <span className="absolute left-0 top-0 px-2 py-1">{children}</span>
+  return <Mozi hunter={mode === "to-hunter-mozi"} className="absolute left-0 top-0 px-2 py-1">{children}</Mozi>
 }
 
 function SelectButton({ children, onClick }: {
