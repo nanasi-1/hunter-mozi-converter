@@ -1,13 +1,8 @@
 import { SelectMode } from "@/utils";
-import Toggle from "../ui/Toggle";
+import Toggle, { ToggleRuby } from "../ui/Toggle";
+import { useState } from "react";
 
-function ToggleRuby({ children }: {
-  children: React.ReactNode
-}) {
-  return <span className="text-sm text-slate-800">{children}</span>
-}
-
-export default function ModeToggle({ mode, onChange }: {
+function ModeToggle({ mode, onChange }: {
   mode: SelectMode
   onChange: (mode: SelectMode) => void
 }) {
@@ -19,4 +14,10 @@ export default function ModeToggle({ mode, onChange }: {
       <ToggleRuby>ひらがなに変換</ToggleRuby>
     </div>
   )
+}
+
+export function useSelectMode() {
+  const [selectMode, setMode] = useState<SelectMode>("to-hiragana")
+  const selectModeToggle = <ModeToggle mode={selectMode} onChange={setMode} />
+  return { selectModeToggle, selectMode }
 }

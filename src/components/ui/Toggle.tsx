@@ -13,3 +13,9 @@ export default function Toggle({ value, onChange }: {
     </label>
   )
 }
+
+export function ToggleRuby({ children }: {
+  children: React.ReactNode
+}) {
+  return <span className="text-sm text-slate-800">{children}</span>
+}
