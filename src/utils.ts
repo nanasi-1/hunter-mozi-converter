@@ -1,0 +1,1 @@
+export type SelectMode = 'to-hiragana' | 'to-hunter-mozi'

@@ -1,7 +1,6 @@
 import { HIRAGANA_LIST } from "@/features/data";
 import { Mozi } from "./HunterMozi";
-
-export type SelectMode = 'to-hiragana' | 'to-hunter-mozi'
+import { SelectMode } from "@/utils";
 
 export function MoziSelector({ onInput, mode }: {
   onInput?: (hiragana: string, e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
@@ -9,8 +8,8 @@ export function MoziSelector({ onInput, mode }: {
 }) {
   return (
     <div className="border-t-2 border-r-2 grid grid-cols-[repeat(5,100px)] w-[500px]">
-      {HIRAGANA_LIST.map(hiragana => (
-        <SelectButton key={hiragana} onClick={hiragana ? e => onInput?.(hiragana, e) : void 0}>
+      {HIRAGANA_LIST.map((hiragana, i) => (
+        <SelectButton key={i} onClick={hiragana ? e => onInput?.(hiragana, e) : void 0}>
           {hiragana ? <>
             <SelectButtonRuby>
               <Mozi hunter={mode === "to-hunter-mozi"}>{hiragana}</Mozi>
