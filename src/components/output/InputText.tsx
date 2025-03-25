@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "../ui/Button"
 import { ModalContainer, useModal } from "@/hooks/modal"
 
@@ -13,13 +13,17 @@ function TextArea({ onSubmit, defaultValue }: {
     onSubmit(text)
   }
 
+  useEffect(() => setText(defaultValue), [defaultValue])
+
   return (
     <form onSubmit={_onSubmit}>
       <textarea
+        autoFocus
         onChange={onChange}
         id="input-mozies"
         value={text}
-        className="text-slate-700 tracking-wide outline-none border-2 border-slate-500 rounded-md px-2 py-2 mb-2 resize-none bg-white w-full"
+        placeholder="ここにひらがなを入力..."
+        className="text-slate-700 min-h-32 tracking-wide outline-none border-2 border-slate-400 rounded-md px-3 py-2 mb-3 resize-none bg-white w-full placeholder:text-slate-400"
       />
       <Button type="submit" className="block">OK</Button>
     </form>
@@ -37,7 +41,12 @@ export function InputMoziModal({ mozies, setMozies, close }: {
   }
 
   return (
-    <ModalContainer>
+    <ModalContainer onClose={close}>
+      <h3 className="font-bold text-slate-600 text-lg mb-1">キーボードで入力</h3>
+      <p className="mb-5 text-slate-500 leading-7">
+        ここに文字を入力すると、結果にその文字が反映されます。<br />
+        ※入力はひらがなのみ対応しています<br />
+      </p>
       <TextArea onSubmit={onSubmit} defaultValue={mozies.join("")} />
     </ModalContainer>
   )
