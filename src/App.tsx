@@ -3,6 +3,7 @@ import Result from "./components/output/Result";
 import { useSelectMode } from "./components/output/Mode";
 import { Backspace, ClearInput } from "./components/output/ClearInput";
 import { useMozies } from "./hooks/mozies";
+import { InputMoziModal } from "./components/output/InputText";
 
 function App() {
   const { mozies, ...controlMozi } = useMozies()
@@ -23,8 +24,11 @@ function App() {
           </div>
           <div className="sticky top-[100vh] mb-20">
             <Backspace disabled={mozies.length === 0} onClick={controlMozi.shift} />
-            <ClearInput disabled={mozies.length === 0} onClick={controlMozi.clear} />
-            <p>ここに他のコンテンツ</p>
+            <h3 className="mt-5 font-bold text-slate-700">一括</h3>
+            <div className="mt-2 flex gap-x-3 items-center">
+              <InputMoziModal mozies={mozies} setMozies={controlMozi.set} />
+              <ClearInput disabled={mozies.length === 0} onClick={controlMozi.clear} />
+            </div>
           </div>
         </div>
       </div>

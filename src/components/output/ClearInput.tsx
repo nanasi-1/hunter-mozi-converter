@@ -28,7 +28,7 @@ export function Backspace({ onClick, disabled }: {
 }) {
   const button = tv({
     extend: base,
-    base: ["mr-2", "w-[70px]"]
+    base: ["w-[70px]", "block"]
   })
   return (
     <button className={button({ disabled })} onClick={onClick} disabled={disabled}>←</button>
