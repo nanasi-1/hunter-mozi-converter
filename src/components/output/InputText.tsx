@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Button } from "../ui/Button"
 
 function TextArea({ onSubmit, defaultValue }: {
   onSubmit: (value: string) => void
@@ -17,8 +18,9 @@ function TextArea({ onSubmit, defaultValue }: {
         onChange={onChange}
         id="input-mozies"
         value={text}
+        className="text-slate-700 tracking-wide outline-none border-2 border-slate-500 rounded-md px-2 py-2 mb-2 resize-none bg-white w-full"
       />
-      <button type="submit">OK</button>
+      <Button type="submit" className="block">OK</Button>
     </form>
   )
 }
