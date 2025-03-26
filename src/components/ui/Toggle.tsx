@@ -11,10 +11,11 @@ export default function Toggle({ value, onChange, onOff }: {
   }
 
   const label = tv({
-    base: "toggle-button-1",
+    base: "toggle-button-1 after:border after:border-slate-400",
     variants: { // 設計むずい
       onOff: {
         "on": "bg-slate-400",
+        "off": "bg-slate-300"
       },
       mode: {
         true: "bg-slate-400"
@@ -24,7 +25,7 @@ export default function Toggle({ value, onChange, onOff }: {
 
   return (
     <label className={label({ 
-      onOff: (onOff && value) ? "on" : void 0, 
+      onOff: onOff ? (value ? "on" : "off") : void 0, 
       mode: !onOff
     })}>
       <input type="checkbox" checked={value} onChange={_onChange} />

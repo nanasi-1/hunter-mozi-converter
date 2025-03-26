@@ -7,7 +7,6 @@
   width: calc(var(--inner-size) * 2);
   height: var(--inner-size);
   border-radius: var(--size);
-  background-color: #dddddd;
   cursor: pointer;
   transition: background-color .3s;
 }
@@ -23,7 +22,6 @@
   background-color: #FFF;
   content: '';
   transition: left .2s;
-  border: solid 1px rgb(155, 155, 155);
 }
 
 .toggle-button-1:has(:checked)::after {

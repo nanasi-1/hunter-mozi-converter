@@ -17,7 +17,7 @@ function TextArea({ onSubmit, defaultValue, mode }: {
   }
 
   const textArea = tv({
-    base: "text-slate-700 min-h-32 tracking-wide outline-none border-2 border-slate-400 rounded-md px-3 py-2 mb-3 resize-none bg-white w-full placeholder:text-slate-400",
+    base: "text-slate-700 min-h-32 tracking-wide outline-hidden border-2 border-slate-400 rounded-md px-3 py-2 mb-3 resize-none bg-white w-full placeholder:text-slate-400",
     variants: {
       hunter: {
         true: "font-[hunter-mozi]",

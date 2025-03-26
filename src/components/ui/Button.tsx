@@ -5,7 +5,7 @@ export function Button({ className, ...props }
 ) {
   const base = tv({
     base: [
-      "rounded", "bg-slate-400", "px-5", "py-2",
+      "rounded-sm", "bg-slate-400", "px-5", "py-2",
       "transition-colors", "text-slate-100"
     ],
     variants: {
