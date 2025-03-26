@@ -11,7 +11,11 @@ function TextAreaMozi({ children, mode, isShownRuby }: {
   return (
     <div>
       { isShownRuby 
-        ? <Ruby ruby={<Mozi hunter={mode === "to-hiragana"}>{children}</Mozi>}>{inline}</Ruby>
+        ? <Ruby 
+            ruby={<Mozi hunter={mode === "to-hiragana"}>{children}</Mozi>}
+            containerClass="flex flex-col-reverse items-center"
+            rtClass="inline-block relative top-1"
+          >{inline}</Ruby>
         : inline
       }
     </div>
