@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "hunter-mozi";
-  src: url("./assets/hunter-mozi.ttf");
+  src: url("/src/assets/hunter-mozi.ttf");
 }
 
 dialog {
