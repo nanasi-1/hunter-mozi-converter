@@ -22,7 +22,7 @@ function App() {
           <p className="pb-6 text-slate-700">ようこそ。</p>
           {selectModeToggle}
           <div className="mt-10 px-6 mb-14">
-            <Result children={mozies} mode={selectMode} />
+            <Result isShownRuby={isShownRuby} mode={selectMode}>{mozies}</Result>
           </div>
           <div className="sticky top-[70vh]">
             <h3 className="mt-5 font-bold text-slate-700 text-lg">操作</h3>
