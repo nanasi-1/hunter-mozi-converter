@@ -5,7 +5,7 @@ export function ModalContainer({ onClose, children }: {
   onClose?: () => void
 }) {
   return (
-    <div className="px-10 py-10 bg-slate-50 relative border-2 border-slate-300 rounded-xl min-w-[40vw] shadow-sm">
+    <div className="px-10 py-10 bg-slate-50 relative border-2 border-slate-300 rounded-xl max-w-[97vw] md:min-w-[40vw] shadow-sm">
       <button className="text-slate-400 text-2xl block absolute right-4 top-1" onClick={onClose}>×</button>
       {children}
     </div>
