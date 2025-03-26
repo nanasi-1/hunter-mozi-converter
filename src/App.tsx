@@ -5,6 +5,7 @@ import { Backspace, ClearInput } from "./components/output/ClearInput";
 import { useMozies } from "./hooks/mozies";
 import { MoziModalOpen } from "./components/output/InputText";
 import { useIsShownRuby } from "./components/output/IsShownRuby";
+import { Mozi } from "./components/HunterMozi";
 
 function Layout({ children: [leftMiddle, rightTop, rightBottom] }: {
   children: React.ReactNode[]
@@ -44,7 +45,11 @@ function App() {
         </div>
         <div>
           <h1 className="font-bold text-2xl md:text-3xl pb-5 pt-3 text-slate-700 text-center md:text-start">ハンター文字変換サイト</h1>
-          <p className="pb-6 text-slate-700">ようこそ。</p>
+          <p className="pb-6 text-slate-700">
+            <Mozi hunter={selectMode === "to-hunter-mozi"}>ようこそ。</Mozi>
+            このサイトでは、<strong>ハンター文字とひらがなを変換</strong>できます。<br />
+            ハンター文字の生成もできるので、ぜひスクショ等してご活用ください。<br />
+          </p>
           {selectModeToggle}
           <div className="mt-10 px-6 mb-14">
             <Result isShownRuby={isShownRuby} mode={selectMode}>{mozies}</Result>
