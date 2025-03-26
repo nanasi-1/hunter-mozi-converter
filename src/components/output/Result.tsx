@@ -15,7 +15,7 @@ function TextAreaMozi({ children, mode }: {
   )
 }
 
-function TextAreaInner({ children, mode }: {
+export default function Result({ children, mode }: {
   children: readonly string[]
   mode: SelectMode
 }) {
@@ -23,14 +23,5 @@ function TextAreaInner({ children, mode }: {
     <div className="flex w-full flex-wrap gap-x-3 gap-y-5 justify-center">
       {children.map((mozi, i) => <TextAreaMozi key={i} mode={mode}>{mozi}</TextAreaMozi>)}
     </div>
-  )
-}
-
-export default function Result({ mozies, mode }: {
-  mozies: readonly string[]
-  mode: SelectMode
-}) {
-  return (
-    <TextAreaInner mode={mode} children={mozies} />
   )
 }

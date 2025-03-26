@@ -17,5 +17,5 @@ export default function Toggle({ value, onChange }: {
 export function ToggleRuby({ children }: {
   children: React.ReactNode
 }) {
-  return <span className="text-sm text-slate-800">{children}</span>
+  return <span className="text-sm text-slate-700">{children}</span>
 }

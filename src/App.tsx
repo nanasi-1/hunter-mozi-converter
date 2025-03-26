@@ -4,10 +4,12 @@ import { useSelectMode } from "./components/output/Mode";
 import { Backspace, ClearInput } from "./components/output/ClearInput";
 import { useMozies } from "./hooks/mozies";
 import { MoziModalOpen } from "./components/output/InputText";
+import { useIsShownRuby } from "./components/output/IsShownRuby";
 
 function App() {
   const { mozies, ...controlMozi } = useMozies()
   const { selectMode, selectModeToggle } = useSelectMode()
+  const { isShownRuby, isShownRubyToggle } = useIsShownRuby()
 
   return (
     <main className="p-10 w-screen bg-slate-50">
@@ -20,16 +22,19 @@ function App() {
           <p className="pb-6 text-slate-700">ようこそ。</p>
           {selectModeToggle}
           <div className="mt-10 px-6 mb-14">
-            <Result mozies={mozies} mode={selectMode} />
+            <Result children={mozies} mode={selectMode} />
           </div>
-          <div className="sticky top-[100vh] mb-64">
-            <h3 className="mt-5 font-bold text-slate-700">操作</h3>
+          <div className="sticky top-[100vh] mb-52">
+            <h3 className="mt-5 font-bold text-slate-700 text-lg">操作</h3>
             <div className="mt-2 flex gap-x-3 items-center">
               <MoziModalOpen mode={selectMode} mozies={mozies} setMozies={controlMozi.set} />
               <ClearInput disabled={mozies.length === 0} onClick={controlMozi.clear} />
               <Backspace disabled={mozies.length === 0} onClick={controlMozi.shift} />
             </div>
-            <h3 className="mt-5 font-bold text-slate-700">設定</h3>
+            <h3 className="mt-6 font-bold text-slate-700 text-lg">設定</h3>
+            <div className="mt-2">
+              {isShownRubyToggle}
+            </div>
           </div>
         </div>
       </div>
