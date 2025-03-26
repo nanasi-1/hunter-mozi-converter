@@ -6,7 +6,7 @@ export function Ruby({ children, ruby }: {
     <ruby>
       {children}
       <rp>###</rp>
-      <rt className="text-slate-400 text-sm ">{ruby}</rt>
+      <rt className="text-slate-400 text-sm select-none">{ruby}</rt>
       <rp>###</rp>
     </ruby>
   )

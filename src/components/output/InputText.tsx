@@ -59,6 +59,6 @@ export function MoziModalOpen(props: {
   const { open, dialog, close } = useModal()
   return (<>
     {dialog}
-    <Button onClick={() => open(<InputMoziModal close={close} {...props} />)}>open dialog</Button>
+    <Button onClick={() => open(<InputMoziModal close={close} {...props} />)}>キーボードで入力</Button>
   </>)
 }

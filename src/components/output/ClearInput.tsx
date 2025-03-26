@@ -1,9 +1,12 @@
 import { Button } from "../ui/Button"
 
-export function ClearInput({ onClick, disabled }: {
-  onClick?: () => void
+export function ClearInput({ onClick: clear, disabled }: {
+  onClick: () => void
   disabled: boolean
 }) {
+  const onClick = () => {
+    if (confirm("本当にすべての文字をクリアしますか？")) clear()
+  } 
   return (
     <Button onClick={onClick} disabled={disabled}>全てクリア</Button>
   )

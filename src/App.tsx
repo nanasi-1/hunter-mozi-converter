@@ -16,19 +16,20 @@ function App() {
           <MoziSelector mode={selectMode} onInput={controlMozi.push} />
         </div>
         <div className="w-full h-screen relative">
-          <h1 className="font-bold text-3xl pb-5">ハンター文字変換機</h1>
-          <p className="pb-6">ようこそ。</p>
+          <h1 className="font-bold text-3xl pb-5 text-slate-700">ハンター文字変換機</h1>
+          <p className="pb-6 text-slate-700">ようこそ。</p>
           {selectModeToggle}
-          <div className="mt-10 px-6">
+          <div className="mt-10 px-6 mb-14">
             <Result mozies={mozies} mode={selectMode} />
           </div>
-          <div className="sticky top-[100vh] mb-20">
-            <Backspace disabled={mozies.length === 0} onClick={controlMozi.shift} />
-            <h3 className="mt-5 font-bold text-slate-700">一括</h3>
+          <div className="sticky top-[100vh] mb-64">
+            <h3 className="mt-5 font-bold text-slate-700">操作</h3>
             <div className="mt-2 flex gap-x-3 items-center">
               <MoziModalOpen mozies={mozies} setMozies={controlMozi.set} />
               <ClearInput disabled={mozies.length === 0} onClick={controlMozi.clear} />
+              <Backspace disabled={mozies.length === 0} onClick={controlMozi.shift} />
             </div>
+            <h3 className="mt-5 font-bold text-slate-700">設定</h3>
           </div>
         </div>
       </div>
