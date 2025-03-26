@@ -8,7 +8,7 @@ export function MoziSelector({ onInput, mode }: {
   mode: SelectMode
 }) {
   return (
-    <div className="border-slate-200 bg-white border-t-2 border-r-2 grid grid-cols-[repeat(5,100px)] w-[500px] box-content">
+    <div className="border-slate-200 bg-white border-t-2 border-r-2 grid grid-cols-5 md:grid-cols-[repeat(5,100px)] md:w-[500px] box-content">
       {HIRAGANA_LIST.map((hiragana, i) => (
         <SelectButton 
           key={i} 
