@@ -30,7 +30,7 @@ function SelectButtonRuby({ children, mode }: {
   children: string
   mode: SelectMode
 }) {
-  return <Mozi hunter={mode === "to-hunter-mozi"} className="absolute left-0 top-0 px-2 py-1">{children}</Mozi>
+  return <Mozi hunter={mode === "to-hunter-mozi"} className="absolute left-0 top-0 px-1 md:px-2 py-1 text-xs md:text-sm">{children}</Mozi>
 }
 
 function SelectButton({ children, onClick, disabled }: {
@@ -42,7 +42,7 @@ function SelectButton({ children, onClick, disabled }: {
     <button
       disabled={disabled}
       onClick={onClick}
-      className="relative text-slate-700 border-slate-200 flex justify-center items-center border-b-2 border-l-2 min-h-[60px] hover:bg-slate-100 transition-colors"
+      className="cursor-pointer relative text-slate-700 border-slate-200 flex justify-center items-center border-b-2 border-l-2 min-h-[60px] hover:bg-slate-100 transition-colors"
     >
       {children}
     </button>

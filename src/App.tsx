@@ -43,14 +43,14 @@ function App() {
           <MoziSelector mode={selectMode} onInput={controlMozi.push} />
         </div>
         <div>
-          <h1 className="font-bold text-3xl pb-5 pt-3 text-slate-700 text-center md:text-start">ハンター文字変換サイト</h1>
+          <h1 className="font-bold text-2xl md:text-3xl pb-5 pt-3 text-slate-700 text-center md:text-start">ハンター文字変換サイト</h1>
           <p className="pb-6 text-slate-700">ようこそ。</p>
           {selectModeToggle}
           <div className="mt-10 px-6 mb-14">
             <Result isShownRuby={isShownRuby} mode={selectMode}>{mozies}</Result>
           </div>
         </div>
-        <div className="sticky top-[70vh]">
+        <div className="sticky top-[65vh]">
           <h3 className="mt-5 font-bold text-slate-700 text-lg">操作</h3>
           <div className="mt-2 flex gap-x-3 items-center flex-wrap gap-y-3 md:flex-row-reverse md:justify-end">
             <Backspace disabled={mozies.length === 0} onClick={controlMozi.shift} />
