@@ -25,6 +25,10 @@ export default function Result({ children, mode, isShownRuby }: {
 }) {
   return (
     <div className="flex w-full flex-wrap gap-x-3 gap-y-5 justify-center">
+      {children.length === 0 
+        ? <span className="text-slate-500">ここに変換結果が表示されます</span>
+        : null
+      }
       {children.map((mozi, i) => 
         <TextAreaMozi key={i} isShownRuby={isShownRuby} mode={mode}>{mozi}</TextAreaMozi>
       )}

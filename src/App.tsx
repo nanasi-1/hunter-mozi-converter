@@ -12,13 +12,13 @@ function App() {
   const { isShownRuby, isShownRubyToggle } = useIsShownRuby()
 
   return (
-    <main className="p-10 w-screen bg-slate-50">
+    <main className="px-10 py-7 w-screen bg-slate-50">
       <div className="flex gap-x-7 w-full">
         <div>
           <MoziSelector mode={selectMode} onInput={controlMozi.push} />
         </div>
         <div className="w-full relative">
-          <h1 className="font-bold text-3xl pb-5 text-slate-700">ハンター文字変換機</h1>
+          <h1 className="font-bold text-3xl pb-5 pt-3 text-slate-700">ハンター文字変換サイト</h1>
           <p className="pb-6 text-slate-700">ようこそ。</p>
           {selectModeToggle}
           <div className="mt-10 px-6 mb-14">

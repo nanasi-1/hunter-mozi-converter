@@ -61,7 +61,7 @@ export function InputMoziModal({ mozies, setMozies, close, mode }: {
       </p>
       <ul className="mb-5 leading-7 text-slate-500">
         <li>※入力はひらがなで行なってください</li>
-        <li>※ひらがなに変換する場合、入力はハンター文字になります</li>
+        <li>※ひらがなに変換がONの場合、表示がハンター文字になります</li>
       </ul>
       <TextArea mode={mode} onSubmit={onSubmit} defaultValue={mozies.join("")} />
     </ModalContainer>
