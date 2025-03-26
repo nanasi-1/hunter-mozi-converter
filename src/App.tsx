@@ -6,6 +6,7 @@ import { useMozies } from "./hooks/mozies";
 import { MoziModalOpen } from "./components/output/InputText";
 import { useIsShownRuby } from "./components/output/IsShownRuby";
 import { Mozi } from "./components/HunterMozi";
+import { Footer } from "./components/Footer";
 
 function Layout({ children: [leftMiddle, rightTop, rightBottom] }: {
   children: React.ReactNode[]
@@ -38,37 +39,40 @@ function App() {
   const { isShownRuby, isShownRubyToggle } = useIsShownRuby()
 
   return (
-    <main className="px-6 md:px-10 py-7 w-screen bg-slate-50">
-      <Layout>
-        <div>
-          <MoziSelector mode={selectMode} onInput={controlMozi.push} />
-        </div>
-        <div>
-          <h1 className="font-bold text-2xl md:text-3xl pb-5 pt-3 text-slate-700 text-center md:text-start">ハンター文字変換サイト</h1>
-          <p className="pb-6 text-slate-700">
-            <Mozi hunter={selectMode === "to-hunter-mozi"}>ようこそ。</Mozi>
-            このサイトでは、<strong>ハンター文字とひらがなを変換</strong>できます。<br />
-            ハンター文字の生成もできるので、ぜひスクショ等してご活用ください。<br />
-          </p>
-          {selectModeToggle}
-          <div className="mt-10 px-6 mb-14">
-            <Result isShownRuby={isShownRuby} mode={selectMode}>{mozies}</Result>
+    <div>
+      <main className="px-6 md:px-10 pt-7 pb-10 w-screen bg-slate-50">
+        <Layout>
+          <div>
+            <MoziSelector mode={selectMode} onInput={controlMozi.push} />
           </div>
-        </div>
-        <div className="sticky top-[65vh]">
-          <h3 className="mt-5 font-bold text-slate-700 text-lg">操作</h3>
-          <div className="mt-2 flex gap-x-3 items-center flex-wrap gap-y-3 md:flex-row-reverse md:justify-end">
-            <Backspace disabled={mozies.length === 0} onClick={controlMozi.shift} />
-            <ClearInput disabled={mozies.length === 0} onClick={controlMozi.clear} />
-            <MoziModalOpen mode={selectMode} mozies={mozies} setMozies={controlMozi.set} />
+          <div>
+            <h1 className="font-bold text-2xl md:text-3xl pb-5 pt-3 text-slate-700 text-center md:text-start">ハンター文字変換サイト</h1>
+            <p className="pb-6 text-slate-700">
+              <Mozi hunter={selectMode === "to-hunter-mozi"}>ようこそ。</Mozi>
+              このサイトでは、<strong>ハンター文字とひらがなを変換</strong>できます。<br />
+              ハンター文字の生成もできるので、ぜひスクショ等してご活用ください。<br />
+            </p>
+            {selectModeToggle}
+            <div className="mt-10 px-6 mb-14">
+              <Result isShownRuby={isShownRuby} mode={selectMode}>{mozies}</Result>
+            </div>
           </div>
-          <h3 className="mt-6 font-bold text-slate-700 text-lg">設定</h3>
-          <div className="mt-2">
-            {isShownRubyToggle}
+          <div className="sticky top-[65vh]">
+            <h3 className="mt-5 font-bold text-slate-700 text-lg">操作</h3>
+            <div className="mt-2 flex gap-x-3 items-center flex-wrap gap-y-3 md:flex-row-reverse md:justify-end">
+              <Backspace disabled={mozies.length === 0} onClick={controlMozi.shift} />
+              <ClearInput disabled={mozies.length === 0} onClick={controlMozi.clear} />
+              <MoziModalOpen mode={selectMode} mozies={mozies} setMozies={controlMozi.set} />
+            </div>
+            <h3 className="mt-6 font-bold text-slate-700 text-lg">設定</h3>
+            <div className="mt-2">
+              {isShownRubyToggle}
+            </div>
           </div>
-        </div>
-      </Layout>
-    </main>
+        </Layout>
+      </main>
+      <Footer />
+    </div>
   );
 };
 
