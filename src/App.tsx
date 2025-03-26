@@ -25,7 +25,7 @@ function App() {
           <div className="sticky top-[100vh] mb-64">
             <h3 className="mt-5 font-bold text-slate-700">操作</h3>
             <div className="mt-2 flex gap-x-3 items-center">
-              <MoziModalOpen mozies={mozies} setMozies={controlMozi.set} />
+              <MoziModalOpen mode={selectMode} mozies={mozies} setMozies={controlMozi.set} />
               <ClearInput disabled={mozies.length === 0} onClick={controlMozi.clear} />
               <Backspace disabled={mozies.length === 0} onClick={controlMozi.shift} />
             </div>
