@@ -12,10 +12,6 @@
   transition: background-color .3s;
 }
 
-.toggle-button-1:has(:checked) {
-  background-color: #dddddd;
-}
-
 .toggle-button-1::after {
   position: absolute;
   top: calc((var(--inner-size) - var(--size)) / 2);
