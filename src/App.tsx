@@ -13,18 +13,18 @@ function App() {
 
   return (
     <main className="p-10 w-screen bg-slate-50">
-      <div className="flex gap-x-7 w-full w-hull">
-        <div className="bg-white">
+      <div className="flex gap-x-7 w-full">
+        <div>
           <MoziSelector mode={selectMode} onInput={controlMozi.push} />
         </div>
-        <div className="w-full h-screen relative">
+        <div className="w-full relative">
           <h1 className="font-bold text-3xl pb-5 text-slate-700">ハンター文字変換機</h1>
           <p className="pb-6 text-slate-700">ようこそ。</p>
           {selectModeToggle}
           <div className="mt-10 px-6 mb-14">
             <Result children={mozies} mode={selectMode} />
           </div>
-          <div className="sticky top-[100vh] mb-52">
+          <div className="sticky top-[70vh]">
             <h3 className="mt-5 font-bold text-slate-700 text-lg">操作</h3>
             <div className="mt-2 flex gap-x-3 items-center">
               <MoziModalOpen mode={selectMode} mozies={mozies} setMozies={controlMozi.set} />
